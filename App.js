@@ -1,7 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { NativeBaseProvider } from "native-base";
-export default function App() {
-    return <View></View>;
+import AppContainer from "./AppContainer";
+import Main from "./screens/Main";
+export default function App({ children }) {
+    return (
+        <AppContainer>
+            <Main />
+        </AppContainer>
+    );
 }
