@@ -3,9 +3,10 @@ import { Text, HStack, Switch, useColorMode } from "native-base";
 const ThemeToggler = () => {
     const { colorMode, toggleColorMode } = useColorMode();
     return (
-        <HStack>
-            <Text>Dark</Text>
+        <HStack flexDirection="row" justifyContent="center" space={4} alignItems="center">
+            <Text>Light</Text>
             <Switch isChecked={colorMode === "dark"} onToggle={toggleColorMode} />
+            <Text>Dark</Text>
         </HStack>
     );
 };

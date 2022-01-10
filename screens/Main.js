@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { Pressable, StyleSheet } from "react-native";
 import {
     Text,
     Box,
@@ -9,21 +9,18 @@ import {
     useColorModeValue,
     themeTools,
 } from "native-base";
-import ThemeToggler from "../utils/ThemeToggler";
+import ThemeToggler from "../components/ThemeToggler";
+import AnimatedCheckBox from "../components/AnimatedCheckBox";
+import TaskItem from "../components/TaskItem";
 export default function Main() {
+    const [Checked, setChecked] = useState(false);
+    function handleCheck() {
+        setChecked((prev) => !prev);
+    }
     return (
         <Center _dark={{ bg: "blueGray.900" }} _light={{ bg: "blueGray.50" }} flex={1} px={20}>
-            <VStack space={5} alignItems="center">
-                <Box
-                    _text={{ color: "cyan.50", bg: "blueGray.200" }}
-                    width={200}
-                    height={200}
-                    justifyContent={"center"}
-                >
-                    <Center>
-                        <ThemeToggler />
-                    </Center>
-                </Box>
+            <VStack space={5} alignItems="center" shadow={3}>
+                <TaskItem isDone={Checked} setDone={handleCheck} />
             </VStack>
         </Center>
     );
