@@ -52,7 +52,7 @@ const AnimatedTextLabel = ({ isDone, children, textColor, inActive }) => {
     }, [isDone]);
     return (
         <AnimatedHStack alignItems="center">
-            <AnimatedText fontSize={16} animatedProps={textColorAnimation} isTruncated>
+            <AnimatedText fontSize={16} isTruncated>
                 {children}
             </AnimatedText>
             <AnimatedBox position="absolute" borderBottomWidth={1} />

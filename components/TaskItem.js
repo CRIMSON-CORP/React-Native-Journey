@@ -5,8 +5,8 @@ import AnimatedCheckbox from "react-native-checkbox-reanimated";
 import AnimatedTextLabel from "./AnimatedTextLabel";
 
 const TaskItem = ({ isDone, setDone }) => {
-    const theme = useTheme;
-    const highlight = themeTools.getColor(theme, useColorModeValue("red.500", "blue.400"));
+    const theme = useTheme();
+    const highlight = themeTools.getColor(theme, useColorModeValue("cyan.500", "blue.400"));
     const boxStroke = themeTools.getColor(theme, useColorModeValue("muted.300", "muted.500"));
     const checkMarkColor = themeTools.getColor(theme, useColorModeValue("white", "white"));
     const activeTextColor = themeTools.getColor(theme, useColorModeValue("darkText", "lightText"));
