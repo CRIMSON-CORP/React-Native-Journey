@@ -22,12 +22,11 @@ const AnimatedTextLabel = ({ isDone, children, textColor, inActive }) => {
     );
     // Animation that moves text to the right a little when task is done
     const strokeThroughOffset = useSharedValue(0);
-    const strokeColor = useSharedValue(0);
     const strikeThroughanimation = useAnimatedStyle(
         () => ({
-            width: strokeThroughOffset.value,
+            width: `${strokeThroughOffset.value * 100}%`,
             borderBottomColor: interpolateColor(
-                strokeColor.value,
+                strokeThroughOffset.value,
                 [0, 1],
                 [textColor, inActive],
                 "RGB"
@@ -66,13 +65,10 @@ const AnimatedTextLabel = ({ isDone, children, textColor, inActive }) => {
             );
             strokeThroughOffset.value = withDelay(
                 500,
-                withTiming("100%", {
+                withTiming(1, {
                     duration: 400,
                 })
             );
-            strokeColor.value = withTiming(1, {
-                duration: 400,
-            });
         } else {
             // Changes color of text back to undone task original text color
             textColorAnimationValue.value = withTiming(0, {
@@ -82,9 +78,6 @@ const AnimatedTextLabel = ({ isDone, children, textColor, inActive }) => {
             strokeThroughOffset.value = withTiming(0, {
                 duration: 400,
             });
-            strokeColor.value = withTiming(0, {
-                duration: 300,
-            });
         }
     }, [isDone]);
     return (
@@ -92,12 +85,7 @@ const AnimatedTextLabel = ({ isDone, children, textColor, inActive }) => {
             <AnimatedText fontSize={16} isTruncated style={textColorAnimation}>
                 {children}
             </AnimatedText>
-            <AnimatedBox
-                position="absolute"
-                borderBottomWidth={1}
-                style={{}}
-                style={strikeThroughanimation}
-            />
+            <AnimatedBox position="absolute" borderBottomWidth={1} style={strikeThroughanimation} />
         </AnimatedHStack>
     );
 };
