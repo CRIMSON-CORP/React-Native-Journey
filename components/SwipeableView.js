@@ -12,6 +12,7 @@ import Animated, {
     useAnimatedStyle,
     withTiming,
     runOnJS,
+    Easing,
 } from "react-native-reanimated";
 import StyledComponent from "../utils/styled";
 
@@ -28,7 +29,7 @@ const SwipeableView = ({ children, BackView, onSwipeLeft = () => {}, simultaneou
         onEnd: () => {
             const shouldDelete = translateX.value < SwipeLimit;
             if (shouldDelete) {
-                translateX.value = withTiming(-width);
+                translateX.value = withTiming(-width, { easing: Easing.linear });
                 runOnJS(onSwipeLeft)();
             } else {
                 translateX.value = withTiming(0);
