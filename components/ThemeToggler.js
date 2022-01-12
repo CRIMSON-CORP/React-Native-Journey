@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, HStack, Switch, useColorMode } from "native-base";
-const ThemeToggler = () => {
+function ThemeToggler() {
     const { colorMode, toggleColorMode } = useColorMode();
     return (
         <HStack flexDirection="row" justifyContent="center" space={4} alignItems="center">
@@ -9,6 +9,6 @@ const ThemeToggler = () => {
             <Text>Dark</Text>
         </HStack>
     );
-};
+}
 
 export default ThemeToggler;

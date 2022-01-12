@@ -11,6 +11,7 @@
         "eject": "expo eject"
     },
     "dependencies": {
+        "@babel/types": "^7.16.8",
         "@react-navigation/drawer": "^6.1.8",
         "@react-navigation/native": "^6.0.6",
         "@types/shortid": "^0.0.29",
@@ -34,7 +35,7 @@
         "styled-system": "^5.1.5"
     },
     "devDependencies": {
-        "@babel/core": "^7.12.9"
+        "@babel/core": "^7.16.7"
     },
     "private": true
 }
