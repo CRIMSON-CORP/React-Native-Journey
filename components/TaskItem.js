@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Pressable } from "react-native";
 import { Box, HStack, Icon, Input, themeTools, useTheme, useColorModeValue } from "native-base";
 import { Feather } from "@expo/vector-icons";
-import AnimatedCheckbox from "react-native-checkbox-reanimated";
+import AnimatedCheckbox from "./AnimatedCheckBox";
 import AnimatedTaskLabel from "./AnimatedTextLabel";
 import SwipableView from "./SwipeableView";
 
