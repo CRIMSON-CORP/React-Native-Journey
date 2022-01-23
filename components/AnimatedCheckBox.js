@@ -5,9 +5,9 @@ import Animated, {
     useAnimatedProps,
     withTiming,
     interpolateColor,
+    useAnimatedStyle,
 } from "react-native-reanimated";
 import Svg, { Path, Defs, ClipPath, G } from "react-native-svg";
-
 const MARGIN = 10;
 const vWidth = 64 + MARGIN;
 const vHeight = 64 + MARGIN;
@@ -30,7 +30,7 @@ const AnimatedCheckbox = (props) => {
         });
     }, [checked]);
 
-    const animatedBoxProps = useAnimatedProps(
+    const animatedBoxProps = useAnimatedStyle(
         () => ({
             stroke: interpolateColor(
                 Easing.bezier(0.16, 1, 0.3, 1).factory()(progress.value),
@@ -96,7 +96,7 @@ export default AnimatedCheckbox;
 
 const AnimatedPathStroke = Animated.createAnimatedComponent(Path);
 
-const AnimatedStroke = ({ progress, ...pathProps }) => {
+const AnimatedStroke = ({ progress, animatedBoxProps, ...pathProps }) => {
     const [length, setLength] = useState(0);
     const ref = useRef(null);
     const animatedProps = useAnimatedProps(() => ({
@@ -114,6 +114,7 @@ const AnimatedStroke = ({ progress, ...pathProps }) => {
             // @ts-ignore
             ref={ref}
             strokeDasharray={length}
+            style={animatedBoxProps}
             {...pathProps}
         />
     );

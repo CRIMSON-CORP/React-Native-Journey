@@ -18,24 +18,29 @@ export const AnimatedTaskItem = (props) => {
         onPressLabel,
         onRemove,
     } = props;
-    const handleToggleCheckbox = useCallback(() => {
-        onToggleItem(data);
-    }, [data, onToggleItem]);
-    const handleChangeSubject = useCallback(
-        (subject) => {
-            onChangeSubject(data, subject);
-        },
-        [data, onChangeSubject]
-    );
-    const handleFinishEditing = useCallback(() => {
-        onFinishEditing(data);
-    }, [data, onFinishEditing]);
-    const handlePressLabel = useCallback(() => {
-        onPressLabel(data);
-    }, [data, onPressLabel]);
-    const handleRemove = useCallback(() => {
-        onRemove(data);
-    }, [data, onRemove]);
+    function handleToggleCheckbox(data) {
+        return onToggleItem(data);
+    }
+
+    function handleToggleCheckbox() {
+        return onToggleItem(data);
+    }
+
+    function handleChangeSubject(subject) {
+        return onChangeSubject(data, subject);
+    }
+
+    function handleFinishEditing() {
+        return onFinishEditing(data);
+    }
+
+    function handlePressLabel() {
+        return onPressLabel(data);
+    }
+    function handleRemove() {
+        return onRemove(data);
+    }
+
     return (
         <StyledView
             w="full"

@@ -13,7 +13,6 @@ import Animated, {
 
 const AnimatedBox = Animated.createAnimatedComponent(Box);
 const AnimatedHStack = Animated.createAnimatedComponent(HStack);
-const AnimatedText = Animated.createAnimatedComponent(Text);
 
 const AnimatedTaskLabel = memo((props) => {
     const { strikethrough, textColor, inactiveTextColor, children } = props;
@@ -65,7 +64,7 @@ const AnimatedTaskLabel = memo((props) => {
 
     return (
         <AnimatedHStack alignItems="center" style={[hstackAnimatedStyles]}>
-            <AnimatedText
+            <Animated.Text
                 fontSize={19}
                 noOfLines={1}
                 isTruncated
@@ -73,7 +72,7 @@ const AnimatedTaskLabel = memo((props) => {
                 style={[TextColorAnimatedStyles]}
             >
                 {children}
-            </AnimatedText>
+            </Animated.Text>
             <AnimatedBox
                 position="absolute"
                 h={1}

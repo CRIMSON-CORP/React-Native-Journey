@@ -25,8 +25,8 @@ export default function MainScreen() {
     const [data, setData] = useState(initialData);
     const [editingItemId, setEditingItemId] = useState();
 
-    const handleToggleTaskItem = useCallback((item) => {
-        setData((prevData) => {
+    function handleToggleTaskItem(item) {
+        return setData((prevData) => {
             const newData = [...prevData];
             const index = prevData.indexOf(item);
             newData[index] = {
@@ -35,8 +35,8 @@ export default function MainScreen() {
             };
             return newData;
         });
-    }, []);
-    const handleChangeTaskItemSubject = useCallback((item, newSubject) => {
+    }
+    function handleChangeTaskItemSubject(item, newSubject) {
         setData((prevData) => {
             const newData = [...prevData];
             const index = prevData.indexOf(item);
@@ -46,7 +46,7 @@ export default function MainScreen() {
             };
             return newData;
         });
-    }, []);
+    }
     const handleFinishEditingTaskItem = useCallback((_item) => {
         setEditingItemId(null);
     }, []);
@@ -62,9 +62,6 @@ export default function MainScreen() {
 
     return (
         <>
-            {/* <Masthead title="What's up, Malcak!" image={require("../assets/masthead.png")}>
-                <NavBar />
-            </Masthead> */}
             <VStack
                 flex={1}
                 space={1}
@@ -84,7 +81,7 @@ export default function MainScreen() {
                     editingItemId={editingItemId}
                 />
             </VStack>
-            {/* <Fab
+            <Fab
                 position="absolute"
                 renderInPortal={false}
                 size="sm"
@@ -103,7 +100,7 @@ export default function MainScreen() {
                     ]);
                     setEditingItemId(id);
                 }}
-            /> */}
+            />
             <ThemeToggler />
         </>
     );
